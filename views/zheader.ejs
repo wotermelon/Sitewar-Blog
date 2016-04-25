@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %> | Sitewar-blog</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/css/lib/materialize.min.css" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/lib/laypage.css">
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body class="body-wrap">
+<!-- 头部 start -->
+<header class="navbar-fixed" style="z-index: 2000;">
+  <nav class="cyan">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo waves-effect waves-dark">Sitewar-blog</a>
+      <div class="z-btn-wrap">
+      <% if (user) { %>
+        <img src="<%=user.head%>">
+        <h6><%=user.name%></h6>
+        <a href="logout" class="waves-effect btn white light-blue-text text-accent-3 z-btn">退出</a>
+      <% } else { %>
+        <a href="login#signin" class="waves-effect btn white light-blue-text text-accent-3 z-btn">登录</a>
+        <a href="login#signup" class="waves-effect btn white light-blue-text text-accent-3 z-btn">注册</a>
+      <% } %>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- 头部 end -->
+<!-- 侧边栏 start-->
+<aside class="z-sidenav">
+  <ul>
+    <li><a href="/" class="waves-effect waves-teal">
+    <i class="icon-home icon-large"></i><span>首页</span></a></li>
+    <li><a href="/home" class="waves-effect waves-teal">
+    <i class="icon-book icon-large"></i><span>最新文章</span></a></li>
+    <li><a href="" class="waves-effect waves-teal">
+    <i class="icon-tasks icon-large"></i><span>文章存档</span></a></li>
+    <li><a href="" class="waves-effect waves-teal">
+    <i class="icon-tags icon-large"></i><span>文章标签</span></a></li>
+  </ul>
+  <ul>
+    <li><a href="https://www.facebook.com" class="waves-effect waves-teal" target="_blank">
+      <i class="icon-facebook-sign icon-large"></i><span>FaceBook</span></a>
+    </li>
+    <li><a href="https://github.com/" class="waves-effect waves-teal" target="_blank">
+      <i class="icon-github icon-large"></i><span>GitHub</span></a>
+    </li>
+    <li><a href="http://www.cnblogs.com/" class="waves-effect waves-teal" target="_blank">
+      <i class="icon-pencil icon-large"></i><span>博客园</span></a>
+    </li>
+    <li><a href="https://cnodejs.org/" class="waves-effect waves-teal" target="_blank">
+      <i class="icon-star-half icon-large"></i><span>Node.JS中文社区</span></a>
+    </li>
+  </ul>
+</aside>
+<!-- 侧边栏 end-->
+<!-- 主体内容 start-->
+<section class="z-main">

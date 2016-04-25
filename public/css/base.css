@@ -1,0 +1,87 @@
+html,body {font-family:Arial,"microsoft yahei","宋体"; font-size: 16px;margin: 0px;padding: 0px;color:#272727; height: 100%;}
+div, ul, li, h1, h2, h3, h4, h5, h6, img, p, dl, dt, dd, ol, th, td {margin: 0px;padding: 0px;}
+li {list-style-type: none;}
+form, input, button, option, textarea, select {margin: 0px;padding: 0px;color:#272727; }
+textarea{resize:none;}
+input{ outline:none;border: none;-webkit-appearance: none;
+}
+input, button, textarea, select {font:100% "微软雅黑","华文细黑",STHeiti-Light,STHeiti,"宋体";}
+a {text-decoration: none; cursor:pointer;color:#272727; }
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+a:active {text-decoration: none;}
+table {font-size:inherit;}
+th {font-weight:normal;}
+img {border: 0;}
+h3 {font-size: 14px;}
+h4 {font-size: 14px;font-weight: normal;}
+em{ font-style:normal;}
+.clear {clear: both;height: 0px;overflow: hidden;}
+button,
+select{outline: none;}
+button{cursor: pointer;}
+textarea{outline: none;border: 1px solid #272727;}
+/*清除浮动*/
+.clearfix:after{content:"";display:block;height:0;font-size:0;clear:both;visibility:hidden;}
+
+/* 侧边栏 */
+nav .brand-logo {
+  margin-left: 20px;
+}
+
+.z-sidenav {
+  position: fixed;
+  left: 0;
+  top: 50px;
+  z-index: 999;
+  width: 250px;
+  height: 100%;
+  box-shadow: 1px 0 8px #999;
+  padding-top: 10px;
+  overflow: auto;
+}
+
+.z-sidenav ul {
+  padding: 20px 0 20px;
+}
+
+.z-sidenav ul:first-child {
+  border-bottom: 1px solid #4a4a4a;
+}
+.z-aside a,
+.z-sidenav a {
+  position: relative;
+  line-height: 55px;
+  display: block;
+  height: 100%;
+  color: #4a4a4a;
+  text-indent: 15px;
+}
+.z-aside a:hover,
+.z-sidenav a:hover {
+  color: #00bcd4;
+}
+
+.z-aside a span,
+.z-sidenav a span {
+  margin-left: 30px;
+}
+
+.z-sidenav a:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* 页脚 */
+footer {
+  height: 240px;
+  line-height: 240px;
+  text-align: center;
+  background: #212121;
+  color: #909696;
+}
+
+footer span {
+  color: #fff;
+  vertical-align: middle;
+}

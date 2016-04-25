@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%=title%> | Sitewar-Blog</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/lib/materialize.min.css" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+  <div class="z-wrapper">
+    <div class="z-bg"></div>
+  </div>
+
+  <div class="z-container-login">
+    <a href="/home"><h1>Sitewar-Blog</h1></a>
+    <p>不是很懂你们人类的博客世界</p>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="cyan-text" href="#signup">注册</a></li>
+            <li class="tab col s3"><a class="cyan-text" href="#signin">登录</a></li>
+          </ul>
+        </div>
+        <!-- 注册表单 -->
+        <div id="signup" class="col s12">
+          <div class="z-signup">
+            <div class="input-field col s12">
+              <input id="username" type="text" class="validate" name="name">
+              <label for="username">用户名</label>
+            </div>
+            <div class="input-field col s12" style="margin-bottom: 5px;">
+              <input id="zemail" type="email" class="validate" name="email">
+              <label for="zemail" data-error="wrong" data-success="right">邮箱</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="pwd" type="password" class="validate" name="password">
+              <label for="pwd">密码</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="pwd-re" type="password" class="validate" name="password-repeat">
+              <label for="pwd-re">确认密码</label>
+            </div>
+            <a href="javascript:void(0);" id="signup-btn" class="sign-btn cyan white-text waves-effect waves-dark">注册</a>
+          </div>
+        </div>
+        <!-- 登录表单 -->
+        <div id="signin" class="col s12">
+          <div class="z-signin">
+            <div class="input-field col s12">
+              <input id="signname" type="text" class="validate" name="password">
+              <label for="first_name">用户名</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="signpwd" type="password" class="validate" name="password-repeat">
+              <label for="first_name">密码</label>
+            </div>
+            <a href="javascript:void(0);" id="signin-btn" class="sign-btn cyan white-text waves-effect waves-dark">登录</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="./js/lib/jquery-1.10.2.min.js"></script>
+  <script src="./js/lib/materialize.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // 用户注册
+      $('#signup-btn').on('click', function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: '/reg/',
+          data: 'name='+$('#username').val()+'&password='+$('#pwd').val()+'&password-repeat='+$('#pwd-re').val()+'&email='+$('#zemail').val(),
+          dataType: "JSON",
+          type: "POST"
+        }).done(function (result) {
+          if(result.success === true) {
+            alert("注册成功！");
+          } else {
+            Materialize.toast(result.error, 1000,'',function(){
+              $('#username').focus();
+            });
+          }
+        });
+      });
+
+      // 用户登录
+      $('#signin-btn').on('click', function (e) {
+        e.preventDefault();
+        var obj = {};
+        obj.name = $('#signname').val();
+        obj.password = $('#signpwd').val();
+        $.ajax({
+          url: '/login/',
+          data: obj,
+          dataType: "JSON",
+          type: "POST"
+        }).done(function (result) {
+          console.log(result);
+          if(result.success === true) {
+            Materialize.toast(result.msg, 1000,'',function(){
+              location.href='/home';
+            });
+          } else {
+
+            Materialize.toast(result.error, 1000,'',function(){
+              $('#signname').focus();
+            });
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>

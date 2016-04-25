@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%=title%> | Sitewar-Blog</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/lib/materialize.min.css" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+  <div class="z-wrapper">
+    <div class="z-bg"></div>
+    <div class="z-overlay"></div>
+  </div>
+  <a class="waves-effect waves-dark white-text z-flatbtn button-collapse" data-activates="slide-in">
+    <i class="icon-th-list"></i>
+  </a>
+  <ul id="slide-in" class="side-nav z-aside">
+    <li class="nav-wrapper">
+     <a href="javascript:void(0);" class="brand-logo cyan white-text z-navbar">Sitewar-Blog</a>
+    </li>
+    <li><a href="home" class="z-link">
+      <i class="icon-home icon-large"></i><span>最新文章</span>
+    </a></li>
+    <li><a href="#!" class="z-link">
+      <i class="icon-tasks icon-large"></i><span>文章存档</span></a></li>
+    <li><a href="#!" class="z-link">
+      <i class="icon-tags icon-large"></i><span>所有标签</span></a></li>
+    <li><hr></li>
+    <li class="row">
+    <div class="col s12 no-padding">
+      <a href="https://www.facebook.com" class="waves-effect waves-teal" target="_blank">
+        <i class="icon-facebook-sign icon-large"></i><span>FaceBook</span>
+      </a>
+      <a href="https://github.com/" class="waves-effect waves-teal" target="_blank">
+        <i class="icon-github icon-large"></i><span>GitHub</span>
+      </a>
+      <a href="http://www.cnblogs.com/" class="waves-effect waves-teal" target="_blank">
+        <i class="icon-pencil icon-large"></i><span>博客园</span>
+      </a>
+      <a href="https://cnodejs.org/" class="waves-effect waves-teal" target="_blank">
+        <i class="icon-star-half icon-large"></i><span>Node.JS中文社区</span>
+      </a>
+    </div>
+    </li>
+  </ul>
+
+  <div class="z-container">
+    <% if (user) { %>
+      <a href="home" class="waves-effect waves-light">
+        <img src="<%=user.head%>">
+      </a>
+      <h1><%=user.name%></h1>
+      <p>欢迎来到 Sitewar 博客站点，开始写文章吧！</p>
+      <a href="home" class="waves-effect btn white light-blue-text text-accent-3 z-btn">Go To Post</a>
+    <% } else { %>
+      <a href="home" class="waves-effect waves-light">
+        <img src="img/header.png">
+      </a>
+      <h1>Sitewar-Blog</h1>
+      <p>不是很懂你们人类的博客世界</p>
+      <a href="login#signin" class="waves-effect btn white light-blue-text text-accent-3 z-btn">登录</a>
+      <a href="login#signup" class="waves-effect btn white light-blue-text text-accent-3 z-btn">注册</a>
+    <% } %>
+    
+  </div>
+
+  <script src="./js/lib/jquery-1.10.2.min.js"></script>
+  <script src="./js/lib/materialize.min.js"></script>
+  <script>
+    $('.button-collapse').sideNav({
+      menuWidth: 300
+    });
+  </script>
+</body>
+</html>
