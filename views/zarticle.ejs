@@ -1,4 +1,8 @@
 <%- include zheader %>
+<%- include zsidenav %>
+
+<!-- 主体内容 start-->
+<section class="z-main">
 <ul class="z-list" id="z-list">
 <% posts.forEach(function (post, index) { %>
   <li>
@@ -36,6 +40,17 @@
   </li>
 <% }) %>
 </ul>
-<div id="z-pagination" page="<%= page %>" allPages="<%= allPages %>" >
+<!-- 文章分页 start -->
+<% if(page && allPages) { %>
+  <div id="z-pagination" page="<%= page %>" allPages="<%= allPages %>" >
+  </div>
+<% } %>
+<!-- 文章分页 end -->
+<!-- 文章发表按钮 start -->
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a href="/post" class="btn-floating btn-large red waves-effect waves-dark" title="发表文章">
+    <i class="icon-pencil"></i>
+  </a>
 </div>
+<!-- 文章发表按钮 end -->
 <%- include zfooter %>

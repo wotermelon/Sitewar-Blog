@@ -1,0 +1,72 @@
+<%- include zheader %>
+<%- include zsidenav %>
+<!-- 主体内容 start-->
+<section class="z-main">
+<section class="z-detail">
+  <div class="z-detail-wrap">
+    <h4><%= post.title %></h1>
+    <hr>
+    <div class="z-detail-info">
+      <div>作者：<a href="/u/<%= post.name %>"><img class="z-detail-head"src="<%= post.head %>"><%= post.name %></a></div>
+      <div>
+        阅读:<span><%= post.pv %></span>
+        &nbsp;|&nbsp;
+        评论:<span><%= post.comments.length %></span>
+        &nbsp;|&nbsp;
+        转载:<span>
+          <% if(post.reprint_info.reprint_to) { %>
+            <%= post.reprint_info.reprint_to.length %>
+          <% } else { %>
+            <%= 0 %>
+          <% } %>
+        </span>
+      </div>
+      <div>发表日期：<%= post.time.minute %></div>
+    </div>
+    <div></div>
+    <div class="z-art-detail">
+      <%- post.post %>
+    </div>
+  </div>
+</section>
+<!-- 文章发表按钮 start -->
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <ul>
+    <% if(user && (user.name == post.name)) { %>
+      <li>
+        <a href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>" class="btn-floating btn-large blue waves-effect waves-dark">编辑</a>
+      </li>
+      <li>
+        <a href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>" class="btn-floating btn-large yellow darken-1 waves-effect waves-dark">删除</a>
+      </li>
+    <% } %>
+      <% var flag = 1 %>
+  <% if(user && (user.name != post.name)) { %>
+    <% if((post.reprint_info.reprint_from != undefined) && (user.name == post.reprint_info.reprint_from.name)) { %>
+      <% flag = 0 %>
+    <% } %>
+    <% if((post.reprint_info.reprint_to != undefined)) { %>
+      <% post.reprint_info.reprint_to.forEach(function (reprint_to, index) { %>
+        <% if(user.name == reprint_to.name) { %>
+          <% flag = 0 %>
+        <% } %>
+      <% }) %>
+    <% } %>
+  <% } else { %>
+    <% flag = 0 %>
+  <% } %>
+  <% if(flag) { %>
+    <li>
+      <a href="/reprint/<%= post.name %>/<%= post.time.day %>/<%= post.title %>" class="btn-floating btn-large green waves-effect waves-dark">转载</a>
+    </li>
+  <% } %>
+  </ul>
+  
+<% if(flag || (user && (user.name == post.name))) { %>
+  <a class="btn-floating btn-large red" style="font-size: 30px;">
+   +
+  </a>
+<% } %>
+</div>
+<!-- 文章发表按钮 end -->
+<%- include zfooter %>

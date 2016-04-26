@@ -58,6 +58,8 @@ nav .brand-logo {
   color: #4a4a4a;
   text-indent: 15px;
 }
+
+.z-sidenav .active,
 .z-aside a:hover,
 .z-sidenav a:hover {
   color: #00bcd4;
@@ -67,7 +69,7 @@ nav .brand-logo {
 .z-sidenav a span {
   margin-left: 30px;
 }
-
+.z-sidenav .active,
 .z-sidenav a:hover {
   background-color: rgba(0,0,0,0.05);
 }
