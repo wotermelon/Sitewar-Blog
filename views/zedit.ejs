@@ -1,0 +1,21 @@
+<%- include zheader %>
+
+<section>
+  <section class="z-post container">
+  <form method="post">
+    <div class="row">
+     <input id="z-edit-title" class="col s10 offset-s1" type="text" placeholder="文章标题" value="<%= post.title %>" name="title">
+    </div>
+    <div class="row">
+      <input id="z-edit-tag" class="col s10 offset-s1" type="text" placeholder="文章标签，多个标签以英文逗号隔开" value="<%= post.tags.join() %>" name="tags">
+    </div>
+    <div class="row">
+      <textarea id="z-edit-textarea" class="col s10 offset-s1 z-text" placeholder="文章内容" name="post"><%= post.post %></textarea>
+    </div>
+    <div class="row">
+      <button type="submit" class="col s10 offset-s1 z-edit cyan white-text" >保存修改</button>
+    </div>
+  </form>
+  </section>
+
+<%- include zfooter %>

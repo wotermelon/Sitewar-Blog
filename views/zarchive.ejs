@@ -1,0 +1,28 @@
+<%- include zheader %>
+<%- include zsidenav %>
+
+<!-- 主体内容 start-->
+<section class="z-main">
+<ul class="z-simple-list">
+  <% var lastYear = 0 %>
+  <% posts.forEach(function (post, index) { %>
+    <% if (lastYear != post.time.year) { %>
+      <li class="<%= post.time.year %>" data-title="title">
+        <h3><%= post.time.year %></h3>
+        <span>放下</span>
+      </li>
+    <% } %>
+    <li class="<%=post.time.year %>" style="display: none;">
+      <div class="z-title clearfix">
+        <p>作者：<a href="/u/<%= post.name %>"><span class="z-author"><%= post.name %></span></a>发表日期：<span class="z-time"><%= post.time.minute %></span></p>
+          <a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
+            <h6><%= post.title %></h6>
+          </a>
+      </div>
+    </li>
+    <% lastYear=post.time.year %>
+  <% }) %>
+</ul>
+
+<%- include zpublish %>
+<%- include zfooter %>

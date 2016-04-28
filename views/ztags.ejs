@@ -1,0 +1,20 @@
+<%- include zheader %>
+<%- include zsidenav %>
+
+<!-- 主体内容 start-->
+<section class="z-main">
+  <div class="z-tags">
+    <h4>所有文章标签</h2>
+    <% tags.forEach(function (tag, index) { %>
+      <% var bgColor = (~~(Math.random()*(1<<24))).toString(16); %>
+      <% if(bgColor.split('').length < 6) { %>
+        <% bgColor = bgColor + "c"; %>
+      <% } %>
+      <a href="/tags/<%= tag %>" class="z-tag" style="background: #<%= bgColor %>;"><%= tag %>
+        <i style="border-left: 24px solid #<%= bgColor %>;"></i>
+      </a>
+    <% }) %>
+  </div>
+
+<%- include zpublish %>
+<%- include zfooter %>
