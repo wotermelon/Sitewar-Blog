@@ -6,3 +6,18 @@
 * 剩下文章发表编辑以及文章存档标签还未完成
 * 剩下文章评论留言以及响应式没有完成
 
+如何运行？
+----
+* 安装[nodeJS](https://nodejs.org/)
+* 进入到项目根目录
+```shell
+npm install
+```
+* 运行
+```shell
+npm start
+```
+* 浏览器查看
+```
+http://localhost:3000/
+```
