@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./css/lib/materialize.min.css" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="/css/lib/jquery.confirm.css">
   <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
@@ -66,19 +67,57 @@
 
   <script src="./js/lib/jquery-1.10.2.min.js"></script>
   <script src="./js/lib/materialize.min.js"></script>
+  <script src="/js/lib/jquery.confirm.js"></script>
   <script>
     $(document).ready(function() {
       // 用户注册
       $('#signup-btn').on('click', function (e) {
         e.preventDefault();
+
+        if($('#username').val().trim() == '') {
+          Materialize.toast('用户名必须填写！', 1000,'',function(){
+            $('#username').focus();
+          });
+          return;
+        }
+
+        if($('#zemail').val().trim() == '') {
+          Materialize.toast('请填写邮箱！', 1000,'',function(){
+            $('#zemail').focus();
+          });
+          return;
+        }
+
+        if($('#pwd').val().trim() == '') {
+          Materialize.toast('请输入密码！', 1000,'',function(){
+            $('#pwd').focus();
+          });
+          return;
+        }
+
+        if($('#pwd').val().trim() != $('#pwd-re').val().trim()) {
+          Materialize.toast('两次密码输入不一致！', 1000,'',function(){
+            $('#pwd-re').focus();
+          });
+          return;
+        }
+
+        var obj = {};
+        obj.name = $('#username').val();
+        obj.password = $('#pwd').val();
+        obj.passwordre = $('#pwd-re').val();
+        obj.email = $('#zemail').val();
+
         $.ajax({
           url: '/reg/',
-          data: 'name='+$('#username').val()+'&password='+$('#pwd').val()+'&password-repeat='+$('#pwd-re').val()+'&email='+$('#zemail').val(),
+          data: obj,
           dataType: "JSON",
           type: "POST"
         }).done(function (result) {
           if(result.success === true) {
-            alert("注册成功！");
+            Materialize.toast(result.msg, 1000,'',function(){
+              location.href='/';
+            });
           } else {
             Materialize.toast(result.error, 1000,'',function(){
               $('#username').focus();
@@ -90,22 +129,36 @@
       // 用户登录
       $('#signin-btn').on('click', function (e) {
         e.preventDefault();
+
+        if($('#signname').val().trim() == '') {
+          Materialize.toast('请输入用户名！', 1000,'',function(){
+            $('#signname').focus();
+          });
+          return;
+        }
+
+        if($('#signpwd').val().trim() == '') {
+          Materialize.toast('请输入密码！', 1000,'',function(){
+            $('#signpwd').focus();
+          });
+          return;
+        }
+
         var obj = {};
         obj.name = $('#signname').val();
         obj.password = $('#signpwd').val();
+        
         $.ajax({
           url: '/login/',
           data: obj,
           dataType: "JSON",
           type: "POST"
         }).done(function (result) {
-          console.log(result);
           if(result.success === true) {
             Materialize.toast(result.msg, 1000,'',function(){
               location.href='/home';
             });
           } else {
-
             Materialize.toast(result.error, 1000,'',function(){
               $('#signname').focus();
             });

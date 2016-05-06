@@ -1,0 +1,44 @@
+<div class="z-comment row">
+  <h5 class="col s12">评论列表</h5>
+  <% if(post.comments.length != 0) { %>
+  <% post.comments.forEach(function (comment, index) { %>
+    <div class="col s12 z-comment-list">
+      <div>
+        <span class="z-lift">#<%= index+1 %>楼</span>
+        <span class="z-comment-time"><%= comment.time %></span>
+        <a href="<%= comment.website %>">
+          <img src="<%= comment.head %>" class="l_head"/>
+          <span><%= comment.name %></span>
+        </a>
+      </div>
+      <div>
+        <%- comment.content %>
+      </div>
+    </div>
+  <% }) %>
+  <% } else { %>
+    <p class="col s12 z-no-comment">暂无评论</p>
+  <% } %>
+
+  
+  <form method="post">
+  <h5 class="col s12">发表留言</h5>
+  <% if (user) { %>
+    <div class="input-field col s12">
+      <input id="z-comment-user" type="text" value="<%= user.name %>" disabled>
+      <label for="z-comment-user">昵称</label>
+    </div>
+    <div class="input-field col s12">
+      <textarea id="z-comment-content" name="content" rows="5" cols="80" class="materialize-textarea"></textarea>
+      <label for="z-comment-content">留言内容</label>
+    </div>
+    <p class="col s12">
+      <button type="submit" id="z-comment-btn" class="btn waves-effect waves-light">提交评论</button>
+    </p>
+  <% } else { %>
+    <p class="col s12">
+      <a href="/login#signin" class="btn waves-effect waves-dark">请登录/注册</a>
+    </p>
+  <% } %>
+  </form> 
+</div>

@@ -397,3 +397,60 @@ body {
 }
 /*------------简单文章列表 end-----------*/
 
+/*------------文章评论留言 start----------*/
+.z-comment {
+  border-top: 1px solid #4a4a4a;
+  padding: 10px 0;
+}
+
+.z-no-comment {
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.z-comment-list {
+  margin-top: 10px;
+}
+
+.z-comment-list div:nth-child(1) {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+.z-comment-list div:nth-child(1) > a,
+.z-lift,
+.z-comment-time {
+  float: left;
+}
+
+.z-lift {
+  color: #000;
+  margin-right: 10px;
+}
+
+.z-comment-time {
+  color: #7d8b8d;
+  margin-right: 10px;
+}
+
+.z-comment-list div:nth-child(1) img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.z-comment-list div:nth-child(1) > a > span {
+  vertical-align: middle;
+}
+
+.z-comment-list div:nth-child(2) {
+  border: 1px dashed #dedede;
+  padding: 10px 10px 20px;
+  margin: 10px 0;
+  word-wrap: break-word;
+}
+/*------------文章评论留言 end----------*/
+
+

@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <title><%=title%> | Sitewar-Blog</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="./css/lib/materialize.min.css" media="screen,projection">
-  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/lib/materialize.min.css" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="/css/lib/jquery.confirm.css">
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
 </head>
 <body>
   <div class="z-wrapper">
@@ -57,7 +58,7 @@
       <p>欢迎来到 Sitewar 博客站点，开始写文章吧！</p>
       <a href="home" class="waves-effect btn white light-blue-text text-accent-3 z-btn">Go To Post</a>
     <% } else { %>
-      <a href="home" class="waves-effect waves-light">
+      <a href="/home" class="waves-effect waves-light">
         <img src="img/header.png">
       </a>
       <h1>Sitewar-Blog</h1>
@@ -68,12 +69,9 @@
     
   </div>
 
-  <script src="./js/lib/jquery-1.10.2.min.js"></script>
-  <script src="./js/lib/materialize.min.js"></script>
-  <script>
-    $('.button-collapse').sideNav({
-      menuWidth: 300
-    });
-  </script>
+  <script src="/js/lib/jquery-1.10.2.min.js"></script>
+  <script src="/js/lib/materialize.min.js"></script>
+  <script src="/js/lib/jquery.confirm.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 </html>
