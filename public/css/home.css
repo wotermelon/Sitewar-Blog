@@ -89,7 +89,7 @@ body {
   min-height: 300px;
 }
 
-.z-list li {
+.z-list>li {
   margin-bottom: 46px;
   border: 1px solid #ccc;
   background: rgba(255,255,255,.8);
@@ -98,12 +98,12 @@ body {
 }
 
 .z-simple-list li:hover,
-.z-list li:hover {
+.z-list>li:hover {
   box-shadow: 0 1px 6px 1px #ccc;
 
 }
 
-.z-list li:last-child {
+.z-list>li:last-child {
   margin-bottom: 28px;
 }
 
@@ -266,6 +266,7 @@ body {
 
 .z-art-detail {
   min-height: 300px;
+  padding: 30px 0;
 }
 
 .z-detail-head {

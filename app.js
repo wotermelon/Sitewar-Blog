@@ -36,13 +36,14 @@ app.use(function (req, res, next) {
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
-// 文件上传
+
 app.use(multer({
   dest: './public/images',
   rename: function (fieldname, filename) {
     return filename;
   }
 }));
+
 app.use(cookieParser());
 app.use(session({
   secret: config.mongo.cookieSecret,
